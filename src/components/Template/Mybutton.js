@@ -4,8 +4,8 @@ import { actions as templateActions } from 'ducks/Template'; //Redux Actions
 
 function MyButton(props){
     const { title } = props; // State
-    const { actionExample} = props;
-    const handleClick = () =>{ actionExample("str"); }
+    const { ActionExample } = props;
+    const handleClick = () =>{ ActionExample("str"); }
     return (
         <div>
             <button onClick={handleClick} >test</button>

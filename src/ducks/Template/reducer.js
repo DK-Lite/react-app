@@ -1,12 +1,13 @@
 import * as types from './types'
 
 const init = {
-    stateExample = null,
+    stateExample: "null",
 }
 
 function reducer(state=init, action){
-    switch(action.types){
+    switch(action.type){
         case types.EXAMPLE:
+            console.log("reducer : success")
             return {
                 ...state,
                 stateExample: action.payload,

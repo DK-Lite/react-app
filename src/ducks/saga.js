@@ -6,12 +6,12 @@ function combineSagas(...sagas) {
     return function* rootSaga(){
         yield all(sagas.reduce( (prevSagas, saga) => [
             ...prevSagas,
-            ...Object.keys(saga).map( key => fork(sagas[key]))
+            ...Object.keys(saga).map( key => fork(saga[key]))
             ] , [])
         )
     }
 }
 
-export default combineSagas({
+export default combineSagas(
     templateSaga,
-})
+)

@@ -1,20 +1,21 @@
-import {call, put, takeEvery, takeLatest} from 'redux-saga/effect'
+import {call, put, takeEvery, takeLatest} from 'redux-saga/effects'
 import * as types from './types'
-import * as actions from './actions'
+import * as templateActions from './actions'
 
 import { instance } from 'utils/api'
 
-function* ExampleSaga(action){
+function* exampleSaga(action){
     try{
-        yield call(instance.post, "host:port", actions.payload)
-        yield put(actions.success)
-    } catch {
-        yield pust(actions.fail)
+        console.log(action)
+        //const data = yield call(instance.post, "host:port", action.payload)
+        //yield put(templateActions.success)
+    } catch (e){
+        console.error(e);
+        //yield put(templateActions.fail)
     }
 
 }
 
 export function* watchSaga(){
-    yield takeEvery(types.EXAMPLE, ExampleSaga)
-    //...
+    yield takeLatest(types.EXAMPLE, exampleSaga);
 }

@@ -1,6 +1,6 @@
 import * as types from './types'
 
 export const ActionExample = (data) => ({
-    types: types.EXAMPLE,
+    type: types.EXAMPLE,
     payload: data,  
 })
