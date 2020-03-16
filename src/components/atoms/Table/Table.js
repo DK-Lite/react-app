@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const CustomDiv = styled.div`
     display: flex;
     width: 400px;
-    
     float: left;
 `
 const CustomTable = styled.div`
@@ -61,7 +60,7 @@ const Cell = styled.div`
 `
 
 function Table(props){
-    const { colums, datas } = props;
+    const { colums, datas, ...other } = props;
 
     const header_line = colums.map( object => (
             <Cell >{object.name}</Cell>
@@ -73,7 +72,7 @@ function Table(props){
     )
 
     return (
-        <CustomDiv> 
+        <CustomDiv style={{...other}}> 
             <CustomTable>
                 <HeaderRow>
                     {header_line}

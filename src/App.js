@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="App">
       <Table 
-          colums={[
+        width= '1000px'
+        colums={[
             {name: 'Day', tag : 'a'},
             {name: 'Area', tag : 'b'},
             {name: 'Price', tag : 'c'},
