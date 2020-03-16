@@ -14,7 +14,7 @@ const HeaderRow = styled.div`
     display: table-row;
 
     height: 40px;
-    background: #5459FF;
+    background: #7ED2FF;
     color: white;
     font-size: 20px;
     font-family: 'Poppins-Regular';
@@ -36,9 +36,8 @@ const Row = styled.div`
         border-bottom: 0.5px solid rgba(0, 0, 0, .3);
     }
     &:hover {
-        background: rgba(84, 89, 255, .3)
+        background: rgba(126, 210, 255, .3)
     }
-
     :last-child > *{
         border-bottom: 0px solid rgba(0, 0, 0, .3);
     }
@@ -50,7 +49,6 @@ const Row = styled.div`
         border-radius: 0 0 15px 0;
         -moz-border-radius: 0 0 15px 0;
     }
-
 `
 const Cell = styled.div`
     display: table-cell;
