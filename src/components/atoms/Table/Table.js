@@ -2,50 +2,92 @@ import React from 'react'
 import styled from 'styled-components'
 
 const CustomDiv = styled.div`
+    display: flex;
+    width: 400px;
+    
     float: left;
 `
-const StyledTable = styled.table`
-    border: 0.5px solid #6663;
+const CustomTable = styled.div`
+    display: table;
+    width: 100%;
 `
-const Tr = styled.tr`
-    border: 0.5px solid #6663;
-`
-const Td = styled.td`
-    border: 0.5px solid #6663;
-`
-const Th = styled.th`
-    border: 0.5px solid #6663; 
-    height: 25px;
-    border: 0.5px solid;
-    border-radius: 3px;
-    background: #5459FF; 
+const HeaderRow = styled.div`
+    display: table-row;
+
+    height: 40px;
+    background: #5459FF;
     color: white;
-    font-family: Nanum Gothic; 
+    font-size: 20px;
+    font-family: 'Poppins-Regular';
+
+    > div:first-child {
+        border-radius: 15px 0 0 0;
+        -moz-border-radius: 15px 0 0 0;
+    }
+    > div:last-child {
+        border-radius: 0 15px 0 0; 
+        -moz-border-radius: 0 15px 0 0;
+    }
+`
+const Row = styled.div`
+    display: table-row;
+    color : rgba(0, 0, 0, .5);
+    font-size: 20px;
+    > *{
+        border-bottom: 0.5px solid rgba(0, 0, 0, .3);
+    }
+    &:hover {
+        background: rgba(84, 89, 255, .3)
+    }
+
+    :last-child > *{
+        border-bottom: 0px solid rgba(0, 0, 0, .3);
+    }
+    :last-child > div:first-child {
+        border-radius: 0 0 0 15px;
+        -moz-border-radius: 0 0 0 15px;
+    }
+    :last-child  > div:last-child {
+        border-radius: 0 0 15px 0;
+        -moz-border-radius: 0 0 15px 0;
+    }
+
+`
+const Cell = styled.div`
+    display: table-cell;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
 `
 
 function Table(props){
     const { colums, datas } = props;
 
     const header_line = colums.map( object => (
-            <Th >{object.name}</Th>
+            <Cell >{object.name}</Cell>
     ))
     const data_lines = datas.map( data => 
-        <Tr>
-            {colums.map( object =>  (<Td> {data[object.tag]}</Td>)) }
-        </Tr>
+        <Row>
+            {colums.map( object =>  (<Cell> {data[object.tag]}</Cell>)) }
+        </Row>
     )
 
     return (
         <CustomDiv> 
-            <StyledTable>
-                <Tr>
+            <CustomTable>
+                <HeaderRow>
                     {header_line}
-                </Tr>
+                </HeaderRow>
                 {data_lines}
-            </StyledTable>
+            </CustomTable>
         </CustomDiv>
         
     )
+}
+
+Table.defalutProps = {
+    colums: [],
+    datas: [],
 }
 
 export default Table;
