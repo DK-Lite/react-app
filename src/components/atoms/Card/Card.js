@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { LineGraph } from '../Chart'
-
 
 const StyledCard = styled.div`
     border: 0.5px solid #6663;
@@ -20,22 +18,13 @@ const StyledCard = styled.div`
 
 
 function Card(props){
-    const { width, height, ...other } = props;
+    const { children, ...other } = props;
 
     return(
-        <StyledCard
-            style= {{
-                width: width,
-                height: height,
-                ...other
-            }} 
-        >
-            <dib> Title </dib>
-            
+        <StyledCard style= {{...other}}>
+            {children}
         </StyledCard>
     )
-    
-
 }
 
 export default Card;
