@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import { Table } from 'components/atoms'
+import { Button } from 'components/atoms/'
 
 function App() {
   return (
     <div className="App">
-      <Table 
+      {/* <AdvanceTable 
         width= '1000px'
         colums={[
             {name: 'Day', tag : 'a'},
@@ -21,7 +21,14 @@ function App() {
             {a: '1919.11.01', b: '84m', c: "10000", d: '-'},
             {a: '1919.11.01', b: '84m', c: "10000", d: '-'},
             {a: '1919.11.01', b: '84m', c: "10000", d: '-'},
-        ]}/>
+        ]}
+        options={{
+          search: false,
+          pagination: false,
+        }}
+      /> */}
+
+      <Button width='100px' height='30px'>Button</Button>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const CustomDiv = styled.div`
@@ -60,8 +60,9 @@ const Cell = styled.div`
     text-align: center;
 `
 
-function Table(props){
+function AdvanceTable(props){
     const { colums, datas, ...other } = props;
+    const [curPage, SetCurPage] = useState(0)
 
     const header_line = colums.map( object => (
             <Cell >{object.name}</Cell>
@@ -79,15 +80,19 @@ function Table(props){
                     {header_line}
                 </HeaderRow>
                 {data_lines}
+                <Row>
+                <Cell><button>PageLeft</button></Cell>
+                <Cell><button>PageRight</button></Cell>
+                </Row>
             </CustomTable>
         </CustomDiv>
         
     )
 }
 
-Table.defalutProps = {
+AdvanceTable.defalutProps = {
     colums: [],
     datas: [],
 }
 
-export default Table;
+export default AdvanceTable;
